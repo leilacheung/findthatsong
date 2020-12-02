@@ -16,6 +16,48 @@
   </head>
 
   <body>
+
+  
+  <% if @current_user != nil %>
+        <li>
+          <a href="/edit_user_profile">
+            Edit Profile <%= @current_user.username %>
+          </a>
+        </li>
+
+        <li>
+          <a href="/playlists">
+            My Playlists
+          </a>
+        </li>
+
+        <li>
+          <a href="/songs">
+            My Songs
+          </a>
+        </li>
+
+        <li>
+          <a href="/moods">
+            My Moods
+          </a>
+        </li>
+
+         <li>
+          <a href="/user_sign_out">
+            Sign out
+          </a>
+        </li>
+        <% else %>
+      <% end %>
+
+    <p style="color: green">
+      <%= notice %>
+    </p>
+
+    <p style="color: red">
+      <%= alert %>
+    </p>
     <%= yield %>
   </body>
 </html>
