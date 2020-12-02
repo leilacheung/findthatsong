@@ -15,24 +15,39 @@
     </h2>
 
     <form action="/insert_song" method="post">
+
       <div>
-        <label for="playlist_id_box">
-          Playlist
+        <label for="title_id_box">
+          Title
         </label>
 
-        <input type="text" id="playlist_id_box" name="query_playlist_id">
+        <input type="text" id="title_id_box" name="query_title_id">
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
+        <label for="artist_id_box">
+          Artist
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id">
+        <input type="text" id="artist_id_box" name="query_artist_id">
+      </div>
+
+      <div>
+
+      <label for="playlist_id_box">
+          Add to Playlist
+        </label>
+      <select id="playlist_id_box" name="query_playlist_id">
+          <% Playlist.all.order(:title).each do |a_playlist| %>
+            <option value="<%= a_playlist.id %>">
+              <%= a_playlist.title %>
+            </option>
+          <% end %>
+        </select>
       </div>
 
       <button>
-        Create song
+        Add Song
       </button>
     </form>
   </div>
@@ -48,19 +63,23 @@
         </th>
 
         <th>
-          Playlist
+          Title
         </th>
 
         <th>
-          User
+         Artist
         </th>
 
         <th>
-          Created at
+        Playlists
         </th>
 
         <th>
-          Updated at
+        Created at
+        </th>
+
+        <th>
+        Updated at
         </th>
 
         <th>
@@ -74,12 +93,17 @@
         </td>
 
         <td>
-          <%= a_song.playlist_id %>
+          <%= a_song.title %>
         </td>
 
         <td>
-          <%= a_song.user_id %>
+          <%= a_song.artist %>
         </td>
+
+        <td>
+          <%= a_song.playlist %>
+        </td>
+
 
         <td>
           <%= time_ago_in_words(a_song.created_at) %> ago

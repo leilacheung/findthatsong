@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Song #<%= @the_song.id %> details
+      <%= @the_song.title %> details
     </h1>
 
     <div>
@@ -23,14 +23,14 @@
         Playlist
       </dt>
       <dd>
-        <%= @the_song.playlist_id %>
+        <%= @the_song.playlist %>
       </dd>
 
       <dt>
-        User
+        Artist
       </dt>
       <dd>
-        <%= @the_song.user_id %>
+        <%= @the_song.artist %>
       </dd>
 
       <dt>
@@ -69,11 +69,11 @@
       </div>
 
       <div>
-        <label for="user_id_box">
-          User
+        <label for="title_id_box">
+          Title
         </label>
 
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_song.user_id %>">
+        <input type="text" id="title_id_box" name="query_title_id" value="<%= @the_song.title_id %>">
       </div>
 
       <button>

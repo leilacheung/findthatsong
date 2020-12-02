@@ -19,8 +19,9 @@ class SongsController < ApplicationController
 
   def create
     the_song = Song.new
-    the_song.playlist_id = params.fetch("query_playlist_id")
-    the_song.user_id = params.fetch("query_user_id")
+    the_song.title = params.fetch("query_title_id")
+    the_song.artist = params.fetch("query_artist_id")
+    the_song.playlist = params.fetch("query_playlist_id")
 
     if the_song.valid?
       the_song.save
@@ -34,8 +35,9 @@ class SongsController < ApplicationController
     the_id = params.fetch("path_id")
     the_song = Song.where({ :id => the_id }).at(0)
 
-    the_song.playlist_id = params.fetch("query_playlist_id")
-    the_song.user_id = params.fetch("query_user_id")
+    the_song.title = params.fetch("query_title_id")
+    the_song.artist = params.fetch("query_artist_id")
+    the_song.playlist = params.fetch("query_playlist_id")
 
     if the_song.valid?
       the_song.save
