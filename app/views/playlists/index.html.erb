@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all playlists
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new playlist
+    </h2>
+
+    <form action="/insert_playlist" method="post">
+      <div>
+        <label for="song_id_box">
+          Song
+        </label>
+
+        <input type="text" id="song_id_box" name="query_song_id">
+      </div>
+
+      <div>
+        <label for="mood_id_box">
+          Mood
+        </label>
+
+        <input type="text" id="mood_id_box" name="query_mood_id">
+      </div>
+
+      <div>
+        <label for="songs_count_box">
+          Songs count
+        </label>
+
+        <input type="text" id="songs_count_box" name="query_songs_count">
+      </div>
+
+      <button>
+        Create playlist
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Song
+        </th>
+
+        <th>
+          Mood
+        </th>
+
+        <th>
+          Songs count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_playlists.each do |a_playlist| %>
+      <tr>
+        <td>
+          <%= a_playlist.id %>
+        </td>
+
+        <td>
+          <%= a_playlist.song_id %>
+        </td>
+
+        <td>
+          <%= a_playlist.mood_id %>
+        </td>
+
+        <td>
+          <%= a_playlist.songs_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_playlist.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_playlist.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/playlists/<%= a_playlist.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

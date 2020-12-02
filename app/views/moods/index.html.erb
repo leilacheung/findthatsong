@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all moods
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new mood
+    </h2>
+
+    <form action="/insert_mood" method="post">
+      <div>
+        <label for="song_id_box">
+          Song
+        </label>
+
+        <input type="text" id="song_id_box" name="query_song_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="playlists_count_box">
+          Playlists count
+        </label>
+
+        <input type="text" id="playlists_count_box" name="query_playlists_count">
+      </div>
+
+      <button>
+        Create mood
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Song
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Playlists count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_moods.each do |a_mood| %>
+      <tr>
+        <td>
+          <%= a_mood.id %>
+        </td>
+
+        <td>
+          <%= a_mood.song_id %>
+        </td>
+
+        <td>
+          <%= a_mood.name %>
+        </td>
+
+        <td>
+          <%= a_mood.playlists_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_mood.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_mood.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/moods/<%= a_mood.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
