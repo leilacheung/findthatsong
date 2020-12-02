@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  songs_count :integer
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  mood_id     :integer

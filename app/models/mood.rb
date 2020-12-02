@@ -3,6 +3,7 @@
 # Table name: moods
 #
 #  id              :integer          not null, primary key
+#  label           :string
 #  name            :string
 #  playlists_count :integer
 #  created_at      :datetime         not null

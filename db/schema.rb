@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_201022) do
+ActiveRecord::Schema.define(version: 2020_12_02_203829) do
 
   create_table "moods", force: :cascade do |t|
     t.integer "song_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_201022) do
     t.integer "playlists_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "label"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_201022) do
     t.integer "songs_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -33,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_201022) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "artist"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_201022) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
   end
 
 end
