@@ -23,8 +23,7 @@ class Song < ApplicationRecord
 
    matching_playlist = Playlist.where({ :id => my_playlist_id }).first
 
-   playlist = matching_playlist.title
-  return playlist
+  return matching_playlist
   end
 
 end
