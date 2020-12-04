@@ -55,15 +55,11 @@
         </th>
 
         <th>
-          Song
+          Title
         </th>
 
         <th>
           Mood
-        </th>
-
-        <th>
-          Songs count
         </th>
 
         <th>
@@ -85,17 +81,13 @@
         </td>
 
         <td>
-          <%= a_playlist.song_id %>
+          <%= a_playlist.title %>
         </td>
 
         <td>
           <%= a_playlist.mood_id %>
         </td>
-
-        <td>
-          <%= a_playlist.songs_count %>
-        </td>
-
+        
         <td>
           <%= time_ago_in_words(a_playlist.created_at) %> ago
         </td>

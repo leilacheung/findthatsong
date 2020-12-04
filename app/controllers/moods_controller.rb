@@ -19,9 +19,8 @@ class MoodsController < ApplicationController
 
   def create
     the_mood = Mood.new
-    the_mood.song_id = params.fetch("query_song_id")
-    the_mood.name = params.fetch("query_name")
-    the_mood.playlists_count = params.fetch("query_playlists_count")
+    the_mood.label = params.fetch("query_label")
+
 
     if the_mood.valid?
       the_mood.save

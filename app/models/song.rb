@@ -21,9 +21,10 @@ class Song < ApplicationRecord
   def playlist
   my_playlist_id = self.playlist_id
 
-   matching_playlist = Playlist.where({ :id => my_playlist_id })
+   matching_playlist = Playlist.where({ :id => my_playlist_id }).first
 
-  return matching_playlist
+   playlist = matching_playlist.title
+  return playlist
   end
 
 end
