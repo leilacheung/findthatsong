@@ -19,9 +19,8 @@ class PlaylistsController < ApplicationController
 
   def create
     the_playlist = Playlist.new
-    the_playlist.song_id = params.fetch("query_song_id")
-    the_playlist.mood_id = params.fetch("query_mood_id")
-    the_playlist.songs_count = params.fetch("query_songs_count")
+    the_playlist.title = params.fetch("query_title")
+    the_playlist.mood_id = params.fetch("query_mood")
 
     if the_playlist.valid?
       the_playlist.save

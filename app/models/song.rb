@@ -15,6 +15,9 @@ class Song < ApplicationRecord
   belongs_to(:listener, { :required => false, :class_name => "User", :foreign_key => "user_id" })
   belongs_to(:playlist, { :required => false, :class_name => "Playlist", :foreign_key => "playlist_id", :counter_cache => true })
 
+  validates(:title, { :presence => true })
+  validates(:artist, { :presence => true })
+
   def playlist
   my_playlist_id = self.playlist_id
 

@@ -16,27 +16,26 @@
 
     <form action="/insert_playlist" method="post">
       <div>
-        <label for="song_id_box">
-          Song
+        <label for="title_box">
+          Title
         </label>
 
-        <input type="text" id="song_id_box" name="query_song_id">
+        <input type="text" id="title_box" name="query_title">
       </div>
 
       <div>
         <label for="mood_id_box">
           Mood
         </label>
-
-        <input type="text" id="mood_id_box" name="query_mood_id">
-      </div>
-
-      <div>
-        <label for="songs_count_box">
-          Songs count
-        </label>
-
-        <input type="text" id="songs_count_box" name="query_songs_count">
+  
+      <select id="mood_id_box" name="query_mood">
+          <% Mood.all.order(:label).each do |a_mood| %>
+            <option value="<%= a_mood.id %>">
+              <%= a_mood.label %>
+            </option>
+          <% end %>
+        </select>
+     
       </div>
 
       <button>

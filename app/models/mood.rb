@@ -12,4 +12,8 @@
 #
 class Mood < ApplicationRecord
   has_many(:playlists, { :class_name => "Playlist", :foreign_key => "mood_id", :dependent => :nullify })
+
+  validates(:label, { :presence => true })
+  validates(:label, { :uniqueness => true })
+  
 end

@@ -37,6 +37,7 @@
       <label for="playlist_id_box">
           Add to Playlist
         </label>
+  
       <select id="playlist_id_box" name="query_playlist_id">
           <% Playlist.all.order(:title).each do |a_playlist| %>
             <option value="<%= a_playlist.id %>">
