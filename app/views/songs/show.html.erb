@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      <%= @the_song.title %> details
+      "<%= @the_song.title %>" by <%= @the_song.artist %>
     </h1>
 
     <div>
@@ -23,14 +23,7 @@
         Playlist
       </dt>
       <dd>
-        <%= @the_song.playlist %>
-      </dd>
-
-      <dt>
-        Artist
-      </dt>
-      <dd>
-        <%= @the_song.artist %>
+        <%= @the_song.playlist.title %>
       </dd>
 
       <dt>
@@ -60,20 +53,34 @@
     </h2>
 
     <form action="/modify_song/<%= @the_song.id %>"  method="post" >
-      <div>
-        <label for="playlist_id_box">
-          Playlist
-        </label>
-
-        <input type="text" id="playlist_id_box" name="query_playlist_id" value="<%= @the_song.playlist_id %>">
-      </div>
 
       <div>
         <label for="title_id_box">
           Title
         </label>
 
-        <input type="text" id="title_id_box" name="query_title_id" value="<%= @the_song.title_id %>">
+        <input type="text" id="title_id_box" name="query_title_id" value="<%= @the_song.title %>">
+      </div>
+
+      <div>
+        <label for="artist_id_box">
+          Artist
+        </label>
+
+        <input type="text" id="artist_id_box" name="query_artist_id" value="<%= @the_song.artist%>">
+      </div>
+
+      <label for="playlist_id_box">
+          Add to Playlist
+        </label>
+  
+      <select id="playlist_id_box" name="query_playlist_id">
+          <% Playlist.all.order(:title).each do |a_playlist| %>
+            <option value="<%= a_playlist.id %>">
+              <%= a_playlist.title %>
+            </option>
+          <% end %>
+        </select>
       </div>
 
       <button>

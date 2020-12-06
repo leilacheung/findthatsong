@@ -38,7 +38,7 @@ class SongsController < ApplicationController
 
     the_song.title = params.fetch("query_title_id")
     the_song.artist = params.fetch("query_artist_id")
-    the_song.playlist = params.fetch("query_playlist_id")
+    the_song.playlist_id = params.fetch("query_playlist_id")
 
     if the_song.valid?
       the_song.save

@@ -24,6 +24,12 @@
             <a href="/playlists" class="dropdown-item">
               Playlists
             </a>
+            <% if @current_user != nil %>
+            <a href="/user_sign_out" class="dropdown-item">
+            Sign Out
+            </a>
+            <% else %>
+            <% end %>
           </div>
         </li>
       </ul>

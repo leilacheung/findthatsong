@@ -1,7 +1,7 @@
 desc "Hydrate the database with some sample data to look at so that developing is easier"
 task({ :sample_data => :environment}) do
 
-  ["alice", "bob", "carol"].each do|username|
+  ["dan", "erin", "franny"].each do|username|
     u = User.new
     u.username = username
     u.email = "#{username}@example.com"
@@ -13,7 +13,7 @@ task({ :sample_data => :environment}) do
 
     end
 
-    alice = User.where({ :username => "alice" }).first
+    franny = User.where({ :username => "franny" }).first
 
     rand(5).times do
       s = Song.new

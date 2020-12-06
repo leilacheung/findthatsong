@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Playlist #<%= @the_playlist.id %> details
+      <%= @the_playlist.title %>
     </h1>
 
     <div>
@@ -20,7 +20,7 @@
 
     <dl>
       <dt>
-        Song
+        Songs
       </dt>
       <dd>
         <%= @the_playlist.song_id %>
@@ -30,7 +30,7 @@
         Mood
       </dt>
       <dd>
-        <%= @the_playlist.mood_id %>
+        <%= @the_playlist.vibe.label %>
       </dd>
 
       <dt>

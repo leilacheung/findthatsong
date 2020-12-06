@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Mood #<%= @the_mood.id %> details
+      Your <%= @the_mood.label %> Playlists
     </h1>
 
     <div>
@@ -19,20 +19,6 @@
     </div>
 
     <dl>
-      <dt>
-        Song
-      </dt>
-      <dd>
-        <%= @the_mood.song_id %>
-      </dd>
-
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_mood.name %>
-      </dd>
-
       <dt>
         Playlists count
       </dt>
@@ -68,31 +54,15 @@
 
     <form action="/modify_mood/<%= @the_mood.id %>"  method="post" >
       <div>
-        <label for="song_id_box">
-          Song
+        <label for="title_id_box">
+          New Title
         </label>
 
-        <input type="text" id="song_id_box" name="query_song_id" value="<%= @the_mood.song_id %>">
-      </div>
-
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_mood.name %>">
-      </div>
-
-      <div>
-        <label for="playlists_count_box">
-          Playlists count
-        </label>
-
-        <input type="text" id="playlists_count_box" name="query_playlists_count" value="<%= @the_mood.playlists_count %>">
+        <input type="text" id="title_id_box" name="query_title" value="<%= @the_mood.label %>">
       </div>
 
       <button>
-        Update mood
+        Update Mood
       </button>
     </form>
   </div>

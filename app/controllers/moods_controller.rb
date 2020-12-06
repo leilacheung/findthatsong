@@ -34,9 +34,7 @@ class MoodsController < ApplicationController
     the_id = params.fetch("path_id")
     the_mood = Mood.where({ :id => the_id }).at(0)
 
-    the_mood.song_id = params.fetch("query_song_id")
-    the_mood.name = params.fetch("query_name")
-    the_mood.playlists_count = params.fetch("query_playlists_count")
+    the_mood.label = params.fetch("query_title")
 
     if the_mood.valid?
       the_mood.save
