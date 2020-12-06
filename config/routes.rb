@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get("/", { :controller => "user_authentication", :action => "base" })
 
   get("/home", { :controller => "user_authentication", :action => "base"})
+
+
   # Routes for the Mood resource:
 
   # CREATE
