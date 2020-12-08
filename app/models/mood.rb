@@ -15,5 +15,6 @@ class Mood < ApplicationRecord
 
   validates(:label, { :presence => true })
   validates(:label, { :uniqueness => true })
+
   
 end

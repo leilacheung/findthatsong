@@ -18,12 +18,4 @@ class Song < ApplicationRecord
   validates(:title, { :presence => true })
   validates(:artist, { :presence => true })
 
-  def playlist
-  my_playlist_id = self.playlist_id
-
-  matching_playlist = Playlist.where({ :id => my_playlist_id }).first
-
-  return matching_playlist
-  end
-
 end

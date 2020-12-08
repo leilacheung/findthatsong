@@ -34,9 +34,8 @@ class PlaylistsController < ApplicationController
     the_id = params.fetch("path_id")
     the_playlist = Playlist.where({ :id => the_id }).at(0)
 
-    the_playlist.song_id = params.fetch("query_song_id")
+    the_playlist.title = params.fetch("query_title")
     the_playlist.mood_id = params.fetch("query_mood_id")
-    the_playlist.songs_count = params.fetch("query_songs_count")
 
     if the_playlist.valid?
       the_playlist.save

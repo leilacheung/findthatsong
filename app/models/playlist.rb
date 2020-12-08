@@ -18,12 +18,5 @@ class Playlist < ApplicationRecord
 
   validates(:title, { :presence => true })
 
-  def vibe
-  my_mood = self.mood_id
-
-  matching_mood = Mood.where({ :id => my_mood}).first
-
-  return matching_mood
-  end
 
 end

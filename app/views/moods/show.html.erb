@@ -20,10 +20,14 @@
 
     <dl>
       <dt>
-        Playlists count
+        Playlists
       </dt>
       <dd>
-        <%= @the_mood.playlists_count %>
+        <% @the_mood.playlists.all.each do |a_playlist| %>
+          <li>
+          <%= a_playlist.title%>
+          </li>
+        <% end %>
       </dd>
 
       <dt>

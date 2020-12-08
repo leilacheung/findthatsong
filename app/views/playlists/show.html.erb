@@ -22,22 +22,26 @@
       <dt>
         Songs
       </dt>
-      <dd>
-        <%= @the_playlist.song_id %>
-      </dd>
-
-      <dt>
-        Mood
-      </dt>
-      <dd>
-        <%= @the_playlist.vibe.label %>
+       <dd>
+        <% @the_playlist.songs.all.each do |a_song| %>
+          <li>
+          "<%= a_song.title %>" by <%= a_song.artist %>
+          </li>
+        <% end %>
       </dd>
 
       <dt>
         Songs count
       </dt>
       <dd>
-        <%= @the_playlist.songs_count %>
+        <%= @the_playlist.songs.all.count %>
+      </dd>
+
+      <dt>
+        Mood
+      </dt>
+      <dd>
+        <%= @the_playlist.genre.label %>
       </dd>
 
       <dt>
@@ -68,11 +72,11 @@
 
     <form action="/modify_playlist/<%= @the_playlist.id %>"  method="post" >
       <div>
-        <label for="song_id_box">
-          Song
+        <label for="title_box">
+          Title
         </label>
 
-        <input type="text" id="song_id_box" name="query_song_id" value="<%= @the_playlist.song_id %>">
+        <input type="text" id="title_box" name="query_title" value="<%= @the_playlist.title %>">
       </div>
 
       <div>
@@ -80,15 +84,14 @@
           Mood
         </label>
 
-        <input type="text" id="mood_id_box" name="query_mood_id" value="<%= @the_playlist.mood_id %>">
-      </div>
+        <select id="mood_id_box" name="query_mood_id">
+          <% Mood.all.order(:label).each do |a_mood| %>
+            <option value="<%= a_mood.id %>">
+              <%= a_mood.label %>
+            </option>
+          <% end %>
+        </select>
 
-      <div>
-        <label for="songs_count_box">
-          Songs count
-        </label>
-
-        <input type="text" id="songs_count_box" name="query_songs_count" value="<%= @the_playlist.songs_count %>">
       </div>
 
       <button>
