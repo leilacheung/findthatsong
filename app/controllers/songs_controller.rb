@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   
   def index
-    matching_songs = Song.all
+    matching_songs = @current_user.songs
 
     @list_of_songs = matching_songs.order({ :created_at => :desc })
 
@@ -23,6 +23,7 @@ class SongsController < ApplicationController
     the_song.title = params.fetch("query_title_id")
     the_song.artist = params.fetch("query_artist_id")
     the_song.playlist_id = params.fetch("query_playlist_id")
+    the_song.user_id = @current_user.id
 
     if the_song.valid?
       the_song.save

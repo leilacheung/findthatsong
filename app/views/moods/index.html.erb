@@ -1,34 +1,8 @@
 <div>
   <div>
     <h1>
-      List of all moods
+      Your Moods
     </h1>
-  </div>
-</div>
-
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new mood
-    </h2>
-
-    <form action="/insert_mood" method="post">
-
-
-      <div>
-        <label for="label_box">
-          Mood
-        </label>
-
-        <input type="text" id="label_box" name="query_label">
-      </div>
-
-      <button>
-        Create mood
-      </button>
-    </form>
   </div>
 </div>
 
@@ -37,10 +11,6 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
-
         <th>
           Mood
         </th>
@@ -59,9 +29,6 @@
 
       <% @list_of_moods.each do |a_mood| %>
       <tr>
-        <td>
-          <%= a_mood.id %>
-        </td>
 
         <td>
           <%= a_mood.label %>
@@ -86,3 +53,26 @@
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new mood
+    </h2>
+
+    <form action="/insert_mood" method="post">
+      <div>
+        <label for="label_box">
+          Mood
+        </label>
+
+        <input type="text" id="label_box" name="query_label">
+      </div>
+    
+
+      <button>
+        Add Mood
+      </button>
+    </form>
+  </div>
+</div>

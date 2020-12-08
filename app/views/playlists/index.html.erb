@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all playlists
+      Your Playlists
     </h1>
   </div>
 </div>
@@ -10,49 +10,8 @@
 
 <div>
   <div>
-    <h2>
-      Add a new playlist
-    </h2>
-
-    <form action="/insert_playlist" method="post">
-      <div>
-        <label for="title_box">
-          Title
-        </label>
-
-        <input type="text" id="title_box" name="query_title">
-      </div>
-
-      <div>
-        <label for="mood_id_box">
-          Mood
-        </label>
-  
-      <select id="mood_id_box" name="query_mood">
-          <% Mood.all.order(:label).each do |a_mood| %>
-            <option value="<%= a_mood.id %>">
-              <%= a_mood.label %>
-            </option>
-          <% end %>
-        </select>
-     
-      </div>
-
-      <button>
-        Create playlist
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Playlist
@@ -76,9 +35,6 @@
 
       <% @list_of_playlists.each do |a_playlist| %>
       <tr>
-        <td>
-          <%= a_playlist.id %>
-        </td>
 
         <td>
           <%= a_playlist.title %>
@@ -107,3 +63,40 @@
 </div>
 
 <hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new playlist
+    </h2>
+
+    <form action="/insert_playlist" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="mood_id_box">
+          Mood
+        </label>
+  
+      <select id="mood_id_box" name="query_mood">
+          <% @current_user.moods.order(:label).each do |a_mood| %>
+            <option value="<%= a_mood.id %>">
+              <%= a_mood.label %>
+            </option>
+          <% end %>
+        </select>
+     
+      </div>
+
+      <button>
+        Create Playlist
+      </button>
+    </form>
+  </div>
+</div>

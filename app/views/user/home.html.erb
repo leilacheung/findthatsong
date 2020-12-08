@@ -7,7 +7,7 @@
         </label>
   
       <select id="mood_id_box">
-          <% Mood.all.order(:label).each do |a_mood| %>
+          <% @current_user.moods.order(:label).each do |a_mood| %>
             <option value="<%= a_mood.id %>">
               <%= a_mood.label %>
             </option>

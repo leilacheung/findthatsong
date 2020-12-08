@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
   def index
-    matching_playlists = Playlist.all
+    matching_playlists = @current_user.playlists
 
     @list_of_playlists = matching_playlists.order({ :created_at => :desc })
 
@@ -21,6 +21,7 @@ class PlaylistsController < ApplicationController
     the_playlist = Playlist.new
     the_playlist.title = params.fetch("query_title")
     the_playlist.mood_id = params.fetch("query_mood")
+    the_playlist.user_id = @current_user.id
 
     if the_playlist.valid?
       the_playlist.save

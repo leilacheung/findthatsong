@@ -1,6 +1,9 @@
 class MoodsController < ApplicationController
+
+  # only show @current_user information
+
   def index
-    matching_moods = Mood.all
+    matching_moods = @current_user.moods
 
     @list_of_moods = matching_moods.order({ :created_at => :desc })
 
@@ -20,13 +23,13 @@ class MoodsController < ApplicationController
   def create
     the_mood = Mood.new
     the_mood.label = params.fetch("query_label")
-
+    the_mood.user_id = @current_user.id
 
     if the_mood.valid?
       the_mood.save
       redirect_to("/moods", { :notice => "Mood created successfully." })
     else
-      redirect_to("/moods", { :notice => "Mood failed to create successfully." })
+      redirect_to("/moods", { :notice => the_mood.errors.full_messages })
     end
   end
 

@@ -31,7 +31,7 @@
       </dd>
 
       <dt>
-        Songs count
+        Total Songs
       </dt>
       <dd>
         <%= @the_playlist.songs.all.count %>
@@ -85,7 +85,7 @@
         </label>
 
         <select id="mood_id_box" name="query_mood_id">
-          <% Mood.all.order(:label).each do |a_mood| %>
+          <% @current_user.moods.order(:label).each do |a_mood| %>
             <option value="<%= a_mood.id %>">
               <%= a_mood.label %>
             </option>

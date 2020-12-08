@@ -19,4 +19,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many(:songs, { :class_name => "Song", :foreign_key => "user_id", :dependent => :nullify })
+  has_many(:playlists, { :class_name => "Playlist", :foreign_key => "user_id", :dependent => :nullify })
+  has_many(:moods, { :class_name => "Mood", :foreign_key => "user_id", :dependent => :nullify })
+  
 end
