@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
 
-  validates :username, :uniqueness => { :case_sensitive => false }
+  validates :username, :uniqueness => { :case_sensitive => true }
   validates :username, :presence => true
 
   has_secure_password
