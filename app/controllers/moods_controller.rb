@@ -20,6 +20,12 @@ class MoodsController < ApplicationController
     render({ :template => "moods/show.html.erb" })
   end
 
+  def display
+    mood_id = params.fetch("query_mood_id")
+
+    redirect_to("/moods/#{mood_id}")
+  end
+
   def create
     the_mood = Mood.new
     the_mood.label = params.fetch("query_label")
@@ -29,7 +35,7 @@ class MoodsController < ApplicationController
       the_mood.save
       redirect_to("/moods", { :notice => "Mood created successfully." })
     else
-      redirect_to("/moods", { :notice => the_mood.errors.full_messages })
+      redirect_to("/moods", { :alert => "Mood failed to create successfully." })
     end
   end
 

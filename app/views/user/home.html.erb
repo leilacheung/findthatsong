@@ -1,12 +1,12 @@
 <h2> What is your mood right now? </h2>
 
-  <form action="/moods/:path_id">
+  <form action="/select_mood">
 
       <label for="playlist_id_box">
           My Mood
         </label>
   
-      <select id="mood_id_box">
+      <select name="query_mood_id" id="mood_id_box">
           <% @current_user.moods.order(:label).each do |a_mood| %>
             <option value="<%= a_mood.id %>">
               <%= a_mood.label %>

@@ -4,29 +4,19 @@
       Your <%= @the_mood.label %> Playlists
     </h1>
 
-    <div>
-      <div>
-        <a href="/moods">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_mood/<%= @the_mood.id %>">
-          Delete mood
-        </a>
-      </div>
-    </div>
-
+    <hr>
+    
     <dl>
       <dt>
         Playlists
       </dt>
       <dd>
         <% @the_mood.playlists.all.each do |a_playlist| %>
+        <a href="/playlists/<%= a_playlist.id %>">
           <li>
           <%= a_playlist.title%>
           </li>
+        </a>
         <% end %>
       </dd>
 
@@ -73,3 +63,17 @@
 </div>
 
 <hr>
+
+<div>
+      <div>
+        <a href="/moods">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_mood/<%= @the_mood.id %>">
+          Delete mood
+        </a>
+      </div>
+    </div>

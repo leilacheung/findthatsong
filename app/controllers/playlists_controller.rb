@@ -27,7 +27,7 @@ class PlaylistsController < ApplicationController
       the_playlist.save
       redirect_to("/playlists", { :notice => "Playlist created successfully." })
     else
-      redirect_to("/playlists", { :notice => "Playlist failed to create successfully." })
+      redirect_to("/playlists", { :alert => "Playlist failed to create successfully." })
     end
   end
 

@@ -4,19 +4,7 @@
       <%= @the_playlist.title %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/playlists">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_playlist/<%= @the_playlist.id %>">
-          Delete playlist
-        </a>
-      </div>
-    </div>
+    <hr>
 
     <dl>
       <dt>
@@ -25,7 +13,9 @@
        <dd>
         <% @the_playlist.songs.all.each do |a_song| %>
           <li>
+          <a href="/songs/<%= a_song.id %>">
           "<%= a_song.title %>" by <%= a_song.artist %>
+          </a>
           </li>
         <% end %>
       </dd>
@@ -41,7 +31,9 @@
         Mood
       </dt>
       <dd>
+      <a href="/moods/<%= @the_playlist.mood_id %>">
         <%= @the_playlist.genre.label %>
+      </a>
       </dd>
 
       <dt>
@@ -102,3 +94,17 @@
 </div>
 
 <hr>
+
+<div>
+      <div>
+        <a href="/playlists">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_playlist/<%= @the_playlist.id %>">
+          Delete playlist
+        </a>
+      </div>
+    </div>

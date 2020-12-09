@@ -29,7 +29,7 @@ class SongsController < ApplicationController
       the_song.save
       redirect_to("/songs", { :notice => "Song created successfully." })
     else
-      redirect_to("/songs", { :notice => "Song failed to create successfully." })
+      redirect_to("/songs", { :alert => "Song failed to create successfully." })
     end
   end
 

@@ -4,26 +4,16 @@
       "<%= @the_song.title %>" by <%= @the_song.artist %>
     </h1>
 
-    <div>
-      <div>
-        <a href="/songs">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_song/<%= @the_song.id %>">
-          Delete song
-        </a>
-      </div>
-    </div>
+    <hr>
 
     <dl>
       <dt>
         Playlist
       </dt>
       <dd>
+      <a href="/playlists/<%= @the_song.playlist_id %>">
         <%= @the_song.playlist.title %>
+      </a>
       </dd>
 
       <dt>
@@ -91,3 +81,17 @@
 </div>
 
 <hr>
+
+<div>
+      <div>
+        <a href="/songs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_song/<%= @the_song.id %>">
+          Delete song
+        </a>
+      </div>
+    </div>

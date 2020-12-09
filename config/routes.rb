@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get("/moods", { :controller => "moods", :action => "index" })
   
   get("/moods/:path_id", { :controller => "moods", :action => "show" })
+
+  get("/select_mood", { :controller => "moods", :action => "display"})
   
   # UPDATE
   
