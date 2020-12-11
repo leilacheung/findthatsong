@@ -1,32 +1,33 @@
 <div>
-  <div>
+  <div class="mb-3">
     <h1>
       Your Moods
     </h1>
   </div>
 </div>
 
-<hr>
 <div>
   <div>
-    <table>
+    <table class="table table-hover">
+    <thead class="thead-light">
       <tr>
-        <th>
+        <th scope="col">
           Mood
         </th>
 
-        <th>
+        <th scope="col">
           Created at
         </th>
 
-        <th>
+        <th scope="col">
           Updated at
         </th>
 
-        <th>
+        <th scope="col">
         </th>
       </tr>
 
+    <tbody>
       <% @list_of_moods.each do |a_mood| %>
       <tr>
 
@@ -48,20 +49,22 @@
         </td>
       </tr>
       <% end %>
+    </tbody>
     </table>
   </div>
 </div>
 
-<hr>
 
 <div>
   <div>
+  <div class="mb-2">
     <h2>
       Add a new mood
     </h2>
+  </div>
 
     <form action="/insert_mood" method="post">
-      <div>
+      <div class="mb-2">
         <label for="label_box">
           Mood
         </label>
@@ -70,7 +73,7 @@
       </div>
     
 
-      <button>
+      <button class="btn btn-secondary">
         Add Mood
       </button>
     </form>

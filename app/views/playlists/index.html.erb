@@ -1,38 +1,38 @@
 <div>
-  <div>
+  <div class="mb-3">
     <h1>
       Your Playlists
     </h1>
   </div>
 </div>
 
-<hr>
-
 <div>
   <div>
-    <table>
+    <table class="table table-hover">
+  <thead class="thead-light">
       <tr>
 
-        <th>
+        <th scope="col">
           Playlist
         </th>
 
-        <th>
+        <th scope="col">
           Mood
         </th>
 
-        <th>
+        <th scope="col">
           Created at
         </th>
 
-        <th>
+        <th scope="col">
           Updated at
         </th>
 
-        <th>
+        <th scope="col">
         </th>
       </tr>
-
+  
+    <tbody>
       <% @list_of_playlists.each do |a_playlist| %>
       <tr>
 
@@ -58,20 +58,22 @@
         </td>
       </tr>
       <% end %>
+      </tbody>
     </table>
   </div>
 </div>
 
-<hr>
 
 <div>
   <div>
+    <div class="mb-2">
     <h2>
       Add a new playlist
     </h2>
+    </div>
 
     <form action="/insert_playlist" method="post">
-      <div>
+      <div class="mb-2">
         <label for="title_box">
           Title
         </label>
@@ -79,7 +81,7 @@
         <input type="text" id="title_box" name="query_title">
       </div>
 
-      <div>
+      <div class="mb-2">
         <label for="mood_id_box">
           Mood
         </label>
@@ -94,7 +96,7 @@
      
       </div>
 
-      <button>
+      <button class="btn btn-secondary">
         Create Playlist
       </button>
     </form>
