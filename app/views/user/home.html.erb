@@ -1,13 +1,10 @@
-<div class="mb-3">
-<h2> What is your mood right now? </h2>
-</div>
+<div class="jumbotron">
+  <div class="mb-3">
+  <h2 class="lead"> What is your mood right now? </h2>
+  </div>
 
-<div class="mb-3">
+<div class="mb-4">
   <form action="/select_mood">
-
-      <label for="playlist_id_box">
-          My Mood
-        </label>
   
       <select name="query_mood_id" id="mood_id_box">
           <% @current_user.moods.order(:label).each do |a_mood| %>
@@ -26,3 +23,4 @@
 
     </form>
   
+</div>
