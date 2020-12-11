@@ -41,7 +41,10 @@
         </td>
 
         <td>
+        <% if a_playlist.genre == nil %>
+        <% else%>
           <%= a_playlist.genre.label %>
+        <% end %>
         </td>
         
         <td>

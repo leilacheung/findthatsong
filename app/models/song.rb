@@ -13,7 +13,7 @@
 #
 class Song < ApplicationRecord
   belongs_to(:listener, { :required => true, :class_name => "User", :foreign_key => "user_id" })
-  belongs_to(:playlist, { :required => false, :class_name => "Playlist", :foreign_key => "playlist_id", :counter_cache => true })
+  belongs_to(:playlist, { :required => true, :class_name => "Playlist", :foreign_key => "playlist_id", :counter_cache => true })
 
   validates(:title, { :presence => true })
   validates(:artist, { :presence => true })
