@@ -16,11 +16,11 @@
         </th>
 
         <th scope="col">
-          Created at
+          Created 
         </th>
 
         <th scope="col">
-          Updated at
+          Updated
         </th>
 
         <th scope="col">
@@ -36,10 +36,10 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_mood.created_at) %> ago
+          <%= a_mood.created_at.strftime("%b %d, %Y") %>
         </td>
         <td>
-          <%= time_ago_in_words(a_mood.updated_at) %> ago
+          <%= a_mood.updated_at.strftime("%b %d, %Y") %>
         </td>
 
         <td>
@@ -73,7 +73,7 @@
       </div>
     
 
-      <button class="btn btn-secondary">
+      <button class="btn btn-secondary btn-sm">
         Add Mood
       </button>
     </form>

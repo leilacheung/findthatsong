@@ -5,7 +5,7 @@
 
   <% if @user.errors.any? %>
   <% @user.errors.full_messages.each do |message| %>
-    <div class="alert" class="mb-2">
+    <div class="alert alert-warning alert-dismissable" role="alert" class="mb-2">
       <%= message %>
     </div>
   <% end %>
@@ -36,7 +36,7 @@
         <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your new password..." type="password">
       </div>
 
-      <button class="btn btn-success">
+      <button class="btn btn-success btn-sm">
         Update Account
       </button>
     </form>
@@ -48,7 +48,7 @@
 
     <form action="/cancel_user_account">
 
-    <button class="btn btn-danger"> Delete Account </button>
+    <button class="btn btn-danger btn-sm"> Delete Account </button>
 
     </form>
 

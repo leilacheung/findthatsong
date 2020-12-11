@@ -7,13 +7,13 @@
     <hr>
 
     <dl>
-      <dt>
+      <dt class="mb-2">
         Songs
       </dt>
        <dd>
         <% @the_playlist.songs.all.each do |a_song| %>
-          <li>
-          <a href="/songs/<%= a_song.id %>">
+          <li class="list-group list-group-flush">
+          <a href="/songs/<%= a_song.id %>" class="list-group-item list-group-item-action col-sm-4">
           "<%= a_song.title %>" by <%= a_song.artist %>
           </a>
           </li>
@@ -27,28 +27,16 @@
         <%= @the_playlist.songs.all.count %>
       </dd>
 
-      <dt>
+      <dt class="mb-2">
         Mood
       </dt>
       <dd>
-      <a href="/moods/<%= @the_playlist.mood_id %>">
+      <a href="/moods/<%= @the_playlist.mood_id %>" class="list-group-item list-group-item-action col-sm-2">
         <%= @the_playlist.genre.label %>
       </a>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_playlist.created_at) %> ago
-      </dd>
 
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_playlist.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -58,12 +46,14 @@
 
 <div>
   <div>
+  <div class="mb-2">
     <h2>
       Edit playlist
     </h2>
+    </div>
 
     <form action="/modify_playlist/<%= @the_playlist.id %>"  method="post" >
-      <div>
+      <div class="mb-2">
         <label for="title_box">
           Title
         </label>
@@ -71,7 +61,7 @@
         <input type="text" id="title_box" name="query_title" value="<%= @the_playlist.title %>">
       </div>
 
-      <div>
+      <div class="mb-2">
         <label for="mood_id_box">
           Mood
         </label>
@@ -86,11 +76,18 @@
 
       </div>
 
-      <button>
+      <button class="btn btn-outline-dark btn-sm mb-2">
         Update playlist
       </button>
     </form>
   </div>
+    <div>
+        <a href="/delete_playlist/<%= @the_playlist.id %>">
+        <button class="btn btn-outline-danger btn-sm">
+          Delete playlist
+          </button>
+        </a>
+      </div>
 </div>
 
 <hr>
@@ -98,13 +95,11 @@
 <div>
       <div>
         <a href="/playlists">
-          Go back
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+      </svg> Back
         </a>
       </div>
 
-      <div>
-        <a href="/delete_playlist/<%= @the_playlist.id %>">
-          Delete playlist
-        </a>
-      </div>
+
     </div>
